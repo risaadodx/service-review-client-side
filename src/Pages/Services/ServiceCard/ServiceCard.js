@@ -24,7 +24,7 @@ const ServiceCard = ({ service }) => {
           <div className="flex justify-between  mt-5">
             <p className=" font-bold text-red-500">Price: ${price}</p>
           </div>
-          <Link to={`/checkout/${_id}`}>
+          <Link to={`/serviceDetails/${_id}`}>
             <button className="btn btn-outline hover:btn-success  w-full mt-5">
               View Details
             </button>

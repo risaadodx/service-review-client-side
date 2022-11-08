@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-20 bg-success text-neutral-content flex justify-between align-middle">
+      <footer className="footer p-20 bg-success text-neutral-content flex justify-between align-middle mt-40">
         <div>
           <img style={{ width: "120px" }} src={logo} alt="" />
         </div>
