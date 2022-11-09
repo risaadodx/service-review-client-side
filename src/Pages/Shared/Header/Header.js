@@ -1,8 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import { AuthContext } from "../../../Contexts/Authprovider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+    navigate("/login");
+  };
   const menuItems = (
     <ul className="flex lg:flex-row flex-col ">
       <li className="mr-5">
@@ -49,15 +60,38 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex">{menuItems}</div>
       <div className="navbar-end">
-        <div>
-          <Link className="text-decoration-none mr-3" to="/login">
-            Login
-          </Link>
-        </div>
-        <div>
-          <Link className="text-decoration-none mr-3" to="/register">
-            SignUp
-          </Link>
+        {user?.uid ? (
+          <div className="mr-5">
+            <button onClick={handleLogOut} variant="dark">
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <div className="flex">
+            <div>
+              <Link className="text-decoration-none mr-3" to="/login">
+                Login
+              </Link>
+            </div>
+            <div>
+              <Link className="text-decoration-none mr-3" to="/register">
+                SignUp
+              </Link>
+            </div>
+          </div>
+        )}
+        <div eventKey={2} href="#userimage">
+          {user?.photoURL ? (
+            <img
+              className="rounded-full"
+              style={{ height: "30px" }}
+              src={user?.photoURL}
+              alt=""
+              title={user.displayName}
+            ></img>
+          ) : (
+            <FaUser></FaUser>
+          )}
         </div>
       </div>
     </div>
