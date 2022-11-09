@@ -7,7 +7,7 @@ const Banner = () => {
     <div className="mb-20">
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row">
-          <img src={img} className="w-2/3 rounded-lg " />
+          <img src={img} className="w-2/3 rounded-lg " alt="" />
           <div>
             <h1 className="text-5xl font-bold">Find Your Tour Guide!</h1>
             <p className="py-6">
