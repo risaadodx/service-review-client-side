@@ -25,6 +25,9 @@ const Header = () => {
       <li className="mr-5">
         <Link to="/blog">Blog</Link>
       </li>
+      <li className="mr-5">
+        <Link to="/addService">Add Service</Link>
+      </li>
     </ul>
   );
   return (
@@ -62,6 +65,9 @@ const Header = () => {
       <div className="navbar-end">
         {user?.uid ? (
           <div className="mr-5">
+            <Link className="text-decoration-none mr-3" to="/myReviews">
+              My Reviews
+            </Link>
             <button onClick={handleLogOut} variant="dark">
               Log Out
             </button>

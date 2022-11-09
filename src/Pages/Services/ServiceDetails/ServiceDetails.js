@@ -5,7 +5,7 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   const { _id, name, price, img, description } = service;
   return (
-    <div>
+    <div className="mt-28">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <img style={{ width: "100px" }} src={img} alt="" />
