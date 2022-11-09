@@ -1,6 +1,8 @@
 import React from "react";
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { FaSpinner } from "react-icons/fa";
+import { ImSpinner2 } from "react-icons/im";
 import { AuthContext } from "../Contexts/Authprovider/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
@@ -9,13 +11,8 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div class="flex justify-center items-center">
-        <div
-          class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
-          role="status"
-        >
-          <span class="visually-hidden">Loading...</span>
-        </div>
+      <div>
+        <ImSpinner2 class="animate-spin h-5 w-5 mr-3 ..."></ImSpinner2>
       </div>
     );
   }
