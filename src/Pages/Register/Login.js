@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ImSpinner2 } from "react-icons/im";
 import loginImg from "../../assets/images/login.png";
 import { AuthContext } from "../../Contexts/Authprovider/AuthProvider";
 
@@ -32,7 +33,15 @@ const Login = () => {
       });
   };
 
-  const { providerLogin } = useContext(AuthContext);
+  const { providerLogin, loading } = useContext(AuthContext);
+
+  if (loading) {
+    return (
+      <div>
+        <ImSpinner2 class="animate-spin h-5 w-5 mr-3 ..."></ImSpinner2>
+      </div>
+    );
+  }
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {

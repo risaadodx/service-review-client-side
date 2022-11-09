@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { FaSpinner } from "react-icons/fa";
 import { ImSpinner2 } from "react-icons/im";
 import { AuthContext } from "../Contexts/Authprovider/AuthProvider";
 

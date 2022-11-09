@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/images/login.png";
+import { ImSpinner2 } from "react-icons/im";
 import { AuthContext } from "../../Contexts/Authprovider/AuthProvider";
 
 const Register = () => {
@@ -34,7 +35,15 @@ const Register = () => {
         setError(error.message);
       });
   };
-  const { providerLogin } = useContext(AuthContext);
+  const { providerLogin, loading } = useContext(AuthContext);
+
+  if (loading) {
+    return (
+      <div>
+        <ImSpinner2 class="animate-spin h-5 w-5 mr-3 ..."></ImSpinner2>
+      </div>
+    );
+  }
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
