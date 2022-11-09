@@ -1,9 +1,53 @@
-import React from "react";
-import { FaFacebook, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import { FaGoogle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/images/login.png";
+import { AuthContext } from "../../Contexts/Authprovider/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const displayName = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(displayName, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        form.reset();
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
+  const { providerLogin } = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="hero mb-20">
       <div className="hero-content grid md:grid-cols-2  justify-between">
@@ -14,7 +58,7 @@ const Register = () => {
           <h1 className=" pt-20 pb-4 text-center text-5xl font-bold">
             Register
           </h1>
-          <form className="card-body px-10 ">
+          <form onSubmit={handleSubmit} className="card-body px-10 ">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -53,19 +97,25 @@ const Register = () => {
                 </Link>
               </label>
             </div>
+            <div className="mb-4">
+              <p className="text-error">{error}</p>
+            </div>
             <div className="form-control mt-6">
               <input
                 className="btn btn-success hover:btn text-white"
                 type="submit"
                 name="login"
                 id=""
-                value="Login"
+                value="Register"
               />
             </div>
             <p className="text-center">or sign up with</p>
-            <div className="flex flex-row justify-center">
-              <FaFacebook className=" m-2"></FaFacebook>
-              <FaGoogle className="m-2"></FaGoogle>
+            <div>
+              <Link onClick={handleGoogleSignIn}>
+                <button className="btn btn-outline hover:btn-success w-full ">
+                  <FaGoogle className="m-2 text-2xl"></FaGoogle>Google
+                </button>
+              </Link>
             </div>
             <p className="text-center text-md ">
               Do you have an account?{" "}
