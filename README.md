@@ -1,5 +1,5 @@
 Projects Features & functionalities:
-*homepage: navebar,banner,services,footer.
+Markup: *homepage: navebar,banner,services,footer.
 *services loaded with api by server from database.
 *user can login and register.
 *logedin user can create a service add reviews
