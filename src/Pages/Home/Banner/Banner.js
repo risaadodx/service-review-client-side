@@ -14,7 +14,7 @@ const Banner = () => {
               Explore the greatest local guides our services. You won’t be
               disappointed
             </p>
-            <Link>
+            <Link to="/register">
               <button className="btn btn-success hover:btn-accent">
                 Join Now
               </button>

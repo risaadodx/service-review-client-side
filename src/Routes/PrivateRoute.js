@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div>
+      <div className="max-w-6xl mx-auto">
         <ImSpinner2 class="animate-spin h-5 w-5 mr-3 ..."></ImSpinner2>
       </div>
     );

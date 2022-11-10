@@ -2,7 +2,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div>
+    <div className="max-w-6xl mx-auto">
       <div className="card w-full bg-base-100 shadow-xl mb-5">
         <div className="card-body">
           <h2 className="card-title">Difference between SQL and NoSQL</h2>

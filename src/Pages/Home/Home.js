@@ -6,7 +6,9 @@ import Banner from "./Banner/Banner";
 const Home = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch(
+      "https://b6a11-service-review-server-side-risaadodx.vercel.app/services"
+    )
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -48,6 +50,44 @@ const Home = () => {
           Fast & <br />
           Protected Services
         </h1>
+      </div>
+      <div className="grid grid-cols-2 gap-4 max-w-6xl mx-auto mt-20">
+        <div
+          className="hero min-h-screen "
+          style={{
+            backgroundImage: `url("https://images.pexels.com/photos/6109664/pexels-photo-6109664.jpeg?auto=compress&cs=tinysrgb&w=600")`,
+            borderRadius: "16px",
+          }}
+        >
+          <div className="hero-overlay bg-opacity-60 rounded-2xl"></div>
+          <div className="hero-content text-center text-neutral-content">
+            <div className="max-w-md">
+              <Link to="/services">
+                <button className="btn btn-success hover:btn-accent">
+                  Find a guide
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div
+          className="hero min-h-screen"
+          style={{
+            backgroundImage: `url("https://images.pexels.com/photos/5225257/pexels-photo-5225257.jpeg?auto=compress&cs=tinysrgb&w=600")`,
+            borderRadius: "16px",
+          }}
+        >
+          <div className="hero-overlay bg-opacity-60 rounded-2xl"></div>
+          <div className="hero-content text-center text-neutral-content">
+            <div className="max-w-md">
+              <Link to="/addService">
+                <button className="btn btn-success hover:btn-accent">
+                  Become a guide
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
