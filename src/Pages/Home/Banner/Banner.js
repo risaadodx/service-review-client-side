@@ -6,8 +6,12 @@ const Banner = () => {
   return (
     <div className="mb-20">
       <div className="hero">
-        <div className="hero-content flex-col lg:flex-row">
-          <img src={img} className="w-2/3 rounded-lg " alt="" />
+        <div className="hero-content flex-col lg:flex-row px-5 lg:px-0">
+          <img
+            src={img}
+            className="lg:w-2/3 rounded-lg lg:mr-5 mb-5 lg:mb-0"
+            alt=""
+          />
           <div>
             <h1 className="text-5xl font-bold">Find Your Tour Guide!</h1>
             <p className="py-6">
