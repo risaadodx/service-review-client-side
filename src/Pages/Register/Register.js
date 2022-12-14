@@ -60,7 +60,7 @@ const Register = () => {
   return (
     <div className="hero mb-20">
       <div className="hero-content grid md:grid-cols-2  justify-between">
-        <div className="w-3/4">
+        <div className="lg:w-3/4">
           <img src={loginImg} alt="" />
         </div>
         <div className="card   border-solid border-2 ">

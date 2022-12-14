@@ -28,6 +28,39 @@ const Header = () => {
       <li className="mr-5">
         <Link to="/addService">Add Service</Link>
       </li>
+      {user?.uid ? (
+        <div className="mr-5 flex flex-col lg:flex-row">
+          <li>
+            <Link className="text-decoration-none mr-3" to="/myReviews">
+              My Reviews
+            </Link>
+          </li>
+          <button
+            className="btn btn-success btn-sm"
+            onClick={handleLogOut}
+            variant="dark"
+          >
+            Log Out
+          </button>
+        </div>
+      ) : (
+        <div className="flex flex-col lg:flex-row">
+          <div>
+            <li>
+              <Link className="text-decoration-none mr-3" to="/login">
+                Login
+              </Link>
+            </li>
+          </div>
+          <div>
+            <li>
+              <Link className="text-decoration-none mr-3" to="/register">
+                SignUp
+              </Link>
+            </li>
+          </div>
+        </div>
+      )}
     </ul>
   );
   return (
@@ -63,29 +96,6 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex">{menuItems}</div>
       <div className="navbar-end">
-        {user?.uid ? (
-          <div className="mr-5">
-            <Link className="text-decoration-none mr-3" to="/myReviews">
-              My Reviews
-            </Link>
-            <button onClick={handleLogOut} variant="dark">
-              Log Out
-            </button>
-          </div>
-        ) : (
-          <div className="flex">
-            <div>
-              <Link className="text-decoration-none mr-3" to="/login">
-                Login
-              </Link>
-            </div>
-            <div>
-              <Link className="text-decoration-none mr-3" to="/register">
-                SignUp
-              </Link>
-            </div>
-          </div>
-        )}
         <div eventKey={2} href="#userimage">
           {user?.photoURL ? (
             <img

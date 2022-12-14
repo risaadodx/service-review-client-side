@@ -15,9 +15,9 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto px-5 lg:px-0">
         <h2 className="text-2xl font-bold">Meet Our Local Guides:</h2>
-        <div className="grid grid-cols-3 gap-6 mt-12 ">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12 ">
           {services.slice(0, 3).map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
@@ -30,28 +30,28 @@ const Home = () => {
           </button>
         </Link>
       </div>
-      <div className="flex justify-between bg-gray-100 px-36 py-20 mt-20">
-        <h1 className="text-3xl font-bold">
+      <div className="flex flex-col lg:flex-row justify-between bg-gray-100 px-5 lg:px-36 py-20 mt-20 text-center">
+        <h1 className="text-2xl lg:text-3xl font-bold py-5 lg:py-0">
           24x7 <br />
           Support
         </h1>
-        <hr className=" border border-gray-300 h-20" />
-        <h1 className="text-3xl font-bold">
+        <hr className=" border border-gray-300 lg:h-20" />
+        <h1 className="text-2xl lg:text-3xl font-bold py-5 lg:py-0">
           100+ <br />
           Guides
         </h1>
-        <hr className=" border border-gray-300 h-20" />
-        <h1 className="text-3xl font-bold">
+        <hr className=" border border-gray-300 lg:h-20" />
+        <h1 className="text-2xl lg:text-3xl font-bold py-5 lg:py-0">
           600+ <br />
           Members
         </h1>
-        <hr className=" border border-gray-300 h-20" />
-        <h1 className="text-3xl font-bold">
+        <hr className=" border border-gray-300 lg:h-20" />
+        <h1 className="text-2xl lg:text-3xl font-bold py-5 lg:py-0">
           Fast & <br />
           Protected Services
         </h1>
       </div>
-      <div className="grid grid-cols-2 gap-4 max-w-6xl mx-auto mt-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto mt-20 px-5 lg:px-0">
         <div
           className="hero min-h-screen "
           style={{

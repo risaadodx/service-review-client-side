@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/Authprovider/AuthProvider";
 
@@ -47,20 +47,22 @@ const ServiceDetails = () => {
   };
 
   return (
-    <div className="mt-28 max-w-6xl mx-auto">
+    <div className="mt-28 max-w-6xl mx-auto px-5 lg:px-0">
       <div className="flex justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex flex-col lg:flex-row items-center">
           <img style={{ width: "100px" }} src={img} alt="" />
 
-          <h2 className="text-2xl font-bold ml-5">{name}</h2>
+          <h2 className="text-lg lg:text-2xl pt-5 font-bold lg:ml-5">{name}</h2>
         </div>
-        <div className="flex items-center">
+        <div className="flex  flex-col lg:flex-row items-center">
           <div>
-            <h2 className="text-2xl font-bold mr-5">Price: ${price}</h2>
+            <h2 className="text-lg lg:text-2xl font-bold mr-5">
+              Price: ${price}
+            </h2>
           </div>
           <div>
             <Link>
-              <button className="btn btn-outline hover:btn-success  w-full mt-5">
+              <button className="btn btn-outline btn-sm hover:btn-success  w-full mt-5">
                 Book Now
               </button>
             </Link>
@@ -77,7 +79,7 @@ const ServiceDetails = () => {
         <div>
           <textarea
             name="message"
-            className="textarea w-2/4 mt-4 h-60 input-bordered"
+            className="textarea w-full lg:w-2/4 mt-4 h-60 input-bordered"
             placeholder="Your Message"
           ></textarea>{" "}
         </div>
@@ -86,7 +88,7 @@ const ServiceDetails = () => {
           name=""
           id=""
           value="Add review"
-          className="btn hover:btn btn-success text-white w-full mt-5 w-2/4"
+          className="btn hover:btn btn-success text-white w-full mt-5 lg:w-2/4 "
         />
       </form>
     </div>

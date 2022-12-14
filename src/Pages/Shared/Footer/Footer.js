@@ -1,12 +1,10 @@
 import React from "react";
 import logo from "../../../assets/logo.png";
-import { FaTwitter, FaYoutube, FaFacebook } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-20 bg-success text-white mt-40">
+      <footer className="footer p-5 lg:p-20 bg-success text-white mt-40">
         <div>
           <img style={{ width: "120px" }} src={logo} alt="" />
         </div>

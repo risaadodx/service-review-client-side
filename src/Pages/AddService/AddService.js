@@ -44,7 +44,7 @@ const AddService = () => {
     <div className="max-w-6xl mx-auto">
       <form
         onSubmit={handleAddService}
-        className="mt-20 border p-20 rounded-lg mb-20"
+        className="mt-20 border p-5 lg:p-20 rounded-lg mb-20"
       >
         <div>
           <input
